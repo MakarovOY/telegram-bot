@@ -1,4 +1,4 @@
-package com.MakarovOY.telegram_bot.dto;
+package com.makarov.telegram_bot.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;

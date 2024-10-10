@@ -1,4 +1,4 @@
-package com.MakarovOY.telegram_bot.config;
+package com.makarov.telegram_bot.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -14,16 +14,17 @@ public class TgClientConfig {
     private static final String TG_BOT_API_URL = "https://api.telegram.org/bot%s/";
 
     @Bean
-    public RestTemplate tgClient(
+    public RestTemplate tgRestTemplate(
             @Value("${tg.bot.timeout}") int timeout,
             @Value("${tg.bot.token}") String token,
             RestTemplateBuilder restTemplateBuilder
     ) {
-        Duration timeoutDuration = Duration.of(timeout, ChronoUnit.SECONDS );
+        var timeoutDuration = Duration.of(timeout, ChronoUnit.SECONDS);
         return restTemplateBuilder
                 .rootUri(TG_BOT_API_URL.formatted(token))
                 .setReadTimeout(timeoutDuration)
                 .setConnectTimeout(timeoutDuration)
                 .build();
     }
+
 }

@@ -1,4 +1,4 @@
-package com.MakarovOY.telegram_bot.dto;
+package com.makarov.telegram_bot.dto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
