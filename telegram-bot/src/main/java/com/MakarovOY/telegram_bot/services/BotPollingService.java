@@ -1,5 +1,6 @@
 package com.MakarovOY.telegram_bot.services;
 
+import com.MakarovOY.telegram_bot.dto.UpdateResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -14,7 +15,7 @@ public class BotPollingService {
 
     @Scheduled(fixedDelay = 2000)
     public void poll() {
-        ResponseEntity<String> updates = tgClient.getForEntity("/getUpdates", String.class);
+        ResponseEntity<UpdateResponse> updates = tgClient.getForEntity("/getUpdates", UpdateResponse.class);
         System.out.println(updates);
     }
 
